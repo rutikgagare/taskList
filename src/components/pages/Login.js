@@ -19,8 +19,8 @@ const Login = () => {
         try {
             const response = await signInWithEmailAndPassword(auth, email, password);
             dispatch(loginActions.setLogout());
-            dispatch(loginActions.setLogedIn());
             dispatch(taskListActions.replace([]));
+            dispatch(loginActions.setLogedIn());
             navigate('/');
 
         } catch (error) {
