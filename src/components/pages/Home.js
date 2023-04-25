@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <div>
       <section className={classes.user}>
-        <h2>Hello {isLogin && auth.currentUser.email}</h2>
+        <h4>Hello {isLogin && auth.currentUser.email.substring(0,auth.currentUser.email.length - 10)}</h4>
 
         <div className={classes.buttons}>
           <Link to="/login">Login</Link>
@@ -52,6 +52,7 @@ const Home = () => {
         <CourseInput />
       </section>
       <section className={classes.goals}>
+        {isLogin && <p>Click on the task You want to remove</p>}
         <CourseGoalList></CourseGoalList>
       </section>
     </div>
