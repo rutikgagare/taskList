@@ -65,6 +65,9 @@
 
 @media screen and (max-width: 700px) {
     .loginForm{
-      width: 90%;
+      width: 95%;
+    }
+    .loginForm button{
+        width: 40%;
     }
   }

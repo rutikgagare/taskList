@@ -21,7 +21,7 @@ const Login = () => {
             dispatch(loginActions.setLogout());
             dispatch(taskListActions.replace([]));
             dispatch(loginActions.setLogedIn());
-            navigate('/');
+            navigate('');
 
         } catch (error) {
             console.log(error);

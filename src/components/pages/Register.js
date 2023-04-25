@@ -12,13 +12,13 @@ const Register = () => {
     const [password, setPassword] = useState('');
 
     const dispatch = useDispatch();
-    
+
     const registrationHandler = async (event) => {
         event.preventDefault();
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password);
             dispatch(loginActions.setLogout());
-            navigate('/login');
+            navigate('login');
 
         } catch (error) {
             console.log(error);
@@ -35,7 +35,7 @@ const Register = () => {
                     <input type="password" placeholder='password' onChange={(e) => { setPassword(e.target.value) }} />
 
                     <button type="submit">Register</button>
-                    <span><Link to="/login">Already have a account?</Link></span>
+                    <span><Link to="login">Already have a account?</Link></span>
                 </form>
             </div>
         </div>
