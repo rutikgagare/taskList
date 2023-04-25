@@ -1,0 +1,11 @@
+.error{
+    border: 2px solid red;
+    text-align: center;
+    margin: 5rem;
+}
+
+.error a{
+    text-decoration: none;
+    color: green;
+    font-size: 1.5rem;
+}
