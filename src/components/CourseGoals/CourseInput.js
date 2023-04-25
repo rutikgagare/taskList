@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Button from '../UI/Button/Button';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { taskListActions } from '../../store/taskListSlice';
 import './CourseInput.css';
 
 const CourseInput = props => {
   const dispatch = useDispatch();
+  const isLogin = useSelector(state => state.login.isLogin);
 
   const [enteredValue, setEnteredValue] = useState('');
   const [isValid, setIsValid] = useState(true);
@@ -24,8 +25,10 @@ const CourseInput = props => {
       setIsValid(false);
       return;
     }
-    
-    dispatch(taskListActions.addTask({id:Math.random().toString(),text:enteredValue}));
+
+    if(isLogin){
+      dispatch(taskListActions.addTask({id:Math.random().toString(),text:enteredValue}));
+    }
     setEnteredValue('');
   };
 
@@ -34,6 +37,7 @@ const CourseInput = props => {
       <div className={`form-control ${!isValid ? 'invalid':''}`}>
         <label>To Do</label>
         <input type="text" value={enteredValue} onChange={goalInputChangeHandler} />
+        {!isLogin && <p style={{color:"red"}}>Please Login to add your task</p>}
       </div>
       <Button type="submit">Add Task</Button>
     </form>
