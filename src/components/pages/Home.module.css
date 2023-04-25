@@ -49,5 +49,8 @@
   .buttons{
     gap: 0.5rem;
   }
+  .user{
+    padding: 0.2rem;
+  }
 }
 
