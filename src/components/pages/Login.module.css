@@ -29,12 +29,8 @@
 
 .loginForm .img{
     position: absolute;
-    top: 0.2rem;
+    top: 1rem;
     right: 1rem;
-    margin-bottom: 2rem;
-    border: 2px solid white;
-    padding: 1rem;
-    border-radius: 4rem;
 }
 
 .img img{
@@ -58,7 +54,7 @@
     width: 100%;
     display: block;
     margin: 0.5rem 0;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
     outline: none;
     border-radius: 0.2rem;
     font-size: 1rem;
