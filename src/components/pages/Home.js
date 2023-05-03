@@ -49,17 +49,18 @@ const Home = () => {
   return (
     <div>
       <section className={classes.user}>
-        <h2>Task List</h2>
+        <h2> <i class="fas fa-list-check"></i> Task List</h2>
         {/* <h2>Task List {isLogin && auth.currentUser.email.substring(0,auth.currentUser.email.length - 10)}</h2> */}
 
         <div className={classes.buttons}>
+          {isLogin && <i class="fa-solid fa-user"></i>}
           <Link to="login">Login</Link>
           <Link to="register">Register</Link>
         </div>
       </section>
 
       <section className={classes.userDetails}>
-        {isLogin && <h3>Hello {auth.currentUser.email}</h3>}
+        {isLogin && <p>Hello {auth.currentUser.email}</p>}
       </section>
 
       <section className={classes.goalForm}>

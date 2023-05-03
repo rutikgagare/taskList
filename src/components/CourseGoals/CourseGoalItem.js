@@ -14,9 +14,9 @@ const CourseGoalItem = props => {
     <li className="goal-item">
       <h3>{props.text}</h3>
 
-      <div className="goal-item-buttons">
-        {/* <button onClick={deleteHandler}>edit</button> */}
-        <button onClick={deleteHandler}>delete</button>
+      <div className="goal-item-icons">
+        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+        <i class="fa-solid fa-trash" onClick={deleteHandler}></i>
       </div>
       
     </li>
