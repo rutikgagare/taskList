@@ -48,8 +48,8 @@ const Home = () => {
           <Link to="login">Login</Link>
           <Link to="register">Register</Link>
         </div>
-
       </section>
+      
       <section className={classes.goalForm}>
         <CourseInput />
       </section>

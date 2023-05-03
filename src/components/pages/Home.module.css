@@ -4,6 +4,10 @@
   margin: 3rem auto;
 }
 
+.goals p{
+  color: white;
+}
+
 .goalForm {
   width: 30rem;
   max-width: 90%;
@@ -51,7 +55,7 @@
     gap: 0.5rem;
   }
   .user{
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem 1rem;
   }
 }
 
