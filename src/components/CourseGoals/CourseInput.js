@@ -25,9 +25,7 @@ const CourseInput = props => {
       setIsValid(false);
       return;
     }
-
-    console.log(isLogin);
-
+    
     if(isLogin){
       dispatch(taskListActions.addTask({id:Math.random().toString(),text:enteredValue}));
     }

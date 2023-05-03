@@ -5,6 +5,7 @@ import { auth } from '../../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { loginActions } from '../../store/loginSlice';
+import cross from '../../Images/cross.png';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -27,13 +28,20 @@ const Register = () => {
         }
     }
 
-    return(
+    const goToHomeHandler = () => {
+        navigate('/');
+    }
+
+    return (
         <div className={classes.main}>
             <div className={classes.loginForm}>
+                <div className={classes.img} onClick={goToHomeHandler}>
+                    <img src={cross} alt="Not Found" />
+                </div>
                 <h2>Register</h2>
                 <form onSubmit={registrationHandler} >
-                    <input type="email" placeholder='email' onChange={(e) => { setEmail(e.target.value) }} />
-                    <input type="password" placeholder='password' onChange={(e) => { setPassword(e.target.value) }} />
+                    <input type="email" placeholder='Enter email' onChange={(e) => { setEmail(e.target.value) }} />
+                    <input type="password" placeholder='Enter password' onChange={(e) => { setPassword(e.target.value) }} />
 
                     <button type="submit">Register</button>
                     <span><Link to="/login">Already have a account?</Link></span>

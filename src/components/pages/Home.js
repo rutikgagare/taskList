@@ -26,7 +26,7 @@ const Home = () => {
         })
       }
 
-      if(send == false){
+      if(send === false){
         send = true;
         return;
       }
