@@ -18,6 +18,7 @@ const Login = () => {
         event.preventDefault();
         try {
             const response = await signInWithEmailAndPassword(auth, email, password);
+            // console.log(response);
             dispatch(loginActions.setLogout());
             dispatch(taskListActions.replace([]));
             dispatch(loginActions.setLogedIn());
