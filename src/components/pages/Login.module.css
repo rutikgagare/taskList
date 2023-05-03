@@ -27,15 +27,14 @@
     background-color: white;
 }
 
-.loginForm .img{
+.icon{
     position: absolute;
     top: 1rem;
     right: 1rem;
 }
 
-.img img{
-    width: 1.5rem;
-    height: 1.5rem;
+.icon i{
+    font-size: 1.5rem;
 }
 
 .loginForm h2{

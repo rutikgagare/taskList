@@ -35,9 +35,10 @@ const Register = () => {
     return (
         <div className={classes.main}>
             <div className={classes.loginForm}>
-                <div className={classes.img} onClick={goToHomeHandler}>
-                    <img src={cross} alt="Not Found" />
+                <div className={classes.icon} onClick={goToHomeHandler}>
+                    <i class="fa-regular fa-circle-xmark"></i>
                 </div>
+
                 <h2>Register</h2>
                 <form onSubmit={registrationHandler} >
                     <input type="email" placeholder='Enter email' onChange={(e) => { setEmail(e.target.value) }} />
