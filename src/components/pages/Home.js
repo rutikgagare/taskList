@@ -66,7 +66,6 @@ const Home = () => {
         <CourseInput />
       </section>
       <section className={classes.goals}>
-        {isLogin && <p>Click on the task You want to remove</p>}
         <CourseGoalList></CourseGoalList>
       </section>
     </div>
