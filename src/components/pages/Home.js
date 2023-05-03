@@ -41,7 +41,8 @@ const Home = () => {
   return (
     <div>
       <section className={classes.user}>
-        <h2>Task List {isLogin && auth.currentUser.email.substring(0,auth.currentUser.email.length - 10)}</h2>
+        <h2>Task List</h2>
+        {/* <h2>Task List {isLogin && auth.currentUser.email.substring(0,auth.currentUser.email.length - 10)}</h2> */}
 
         <div className={classes.buttons}>
           <Link to="login">Login</Link>
