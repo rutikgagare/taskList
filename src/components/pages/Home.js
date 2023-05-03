@@ -7,12 +7,32 @@ import { taskListActions } from '../../store/taskListSlice';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
+let send = false;
+
 const Home = () => {
   const isLogin = useSelector(state => state.login.isLogedIn);
   console.log("isLogin"+isLogin);
 
   const items = useSelector(state => state.task.items);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(isLogin){
+      let user = auth.currentUser.email.substring(0, 4);
+      const sendData = async () => {
+        await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${user}.json`, {
+          method: "PUT",
+          body: JSON.stringify({items:items})
+        })
+      }
+
+      if(send == false){
+        send = true;
+        return;
+      }
+      sendData();
+    }
+  },[items]);
 
   useEffect(() => {
     if(isLogin) {
@@ -24,21 +44,7 @@ const Home = () => {
       }
       fetchData();
     }
-  }, [isLogin,items]);
-
-
-  useEffect(() => {
-    if(isLogin){
-      let user = auth.currentUser.email.substring(0, 4);
-      const sendData = async () => {
-        await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${user}.json`, {
-          method: "PUT",
-          body: JSON.stringify({items:items})
-        })
-      }
-      sendData();
-    }
-  },[items]);
+  }, [isLogin]);
 
   return (
     <div>
@@ -50,6 +56,10 @@ const Home = () => {
           <Link to="login">Login</Link>
           <Link to="register">Register</Link>
         </div>
+      </section>
+
+      <section className={classes.userDetails}>
+        {isLogin && <h3>Hello {auth.currentUser.email}</h3>}
       </section>
 
       <section className={classes.goalForm}>
