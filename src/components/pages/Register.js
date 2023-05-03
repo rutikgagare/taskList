@@ -39,13 +39,12 @@ const Register = () => {
                     <i class="fa-regular fa-circle-xmark"></i>
                 </div>
 
-                <h2>Register</h2>
+                <h2>Create your account</h2>
                 <form onSubmit={registrationHandler} >
-                    <input type="email" placeholder='Enter email' onChange={(e) => { setEmail(e.target.value) }} />
-                    <input type="password" placeholder='Enter password' onChange={(e) => { setPassword(e.target.value) }} />
-
+                    <input type="email" placeholder='Email address' onChange={(e) => { setEmail(e.target.value) }} />
+                    <input type="password" placeholder='Password' onChange={(e) => { setPassword(e.target.value) }} />
                     <button type="submit">Register</button>
-                    <span><Link to="/login">Already have a account?</Link></span>
+                    <span>Already have a account? <Link to="/login">Log in</Link></span>
                 </form>
             </div>
         </div>
