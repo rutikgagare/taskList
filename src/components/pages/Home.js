@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 
 const Home = () => {
   const isLogin = useSelector(state => state.login.isLogedIn);
+  console.log("isLogin"+isLogin);
+
   const items = useSelector(state => state.task.items);
   const dispatch = useDispatch();
 
@@ -22,7 +24,7 @@ const Home = () => {
       }
       fetchData();
     }
-  }, [isLogin]);
+  }, [isLogin,items]);
 
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const Home = () => {
           <Link to="register">Register</Link>
         </div>
       </section>
-      
+
       <section className={classes.goalForm}>
         <CourseInput />
       </section>
