@@ -13,10 +13,10 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isLogin) {
+    if(isLogin) {
       let user = auth.currentUser.email.substring(0, 4);
       const fetchData = async () => {
-        const response = await fetch(`https://to-do-list-25c37-default-rtdb.firebaseio.com/${user}.json`);
+        const response = await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${user}.json`);
         const data = await response.json();
         dispatch(taskListActions.replace(data.items));
       }
@@ -24,27 +24,28 @@ const Home = () => {
     }
   }, [isLogin]);
 
+
   useEffect(() => {
     if(isLogin){
       let user = auth.currentUser.email.substring(0, 4);
       const sendData = async () => {
-        await fetch(`https://to-do-list-25c37-default-rtdb.firebaseio.com/${user}.json`, {
+        await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${user}.json`, {
           method: "PUT",
           body: JSON.stringify({items:items})
         })
       }
       sendData();
     }
-  },[items,isLogin]);
+  },[items]);
 
   return (
     <div>
       <section className={classes.user}>
-        <h4>Hello {isLogin && auth.currentUser.email.substring(0,auth.currentUser.email.length - 10)}</h4>
+        <h2>Task List {isLogin && auth.currentUser.email.substring(0,auth.currentUser.email.length - 10)}</h2>
 
         <div className={classes.buttons}>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          <Link to="login">Login</Link>
+          <Link to="register">Register</Link>
         </div>
 
       </section>

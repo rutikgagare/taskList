@@ -17,6 +17,7 @@ const Register = () => {
         event.preventDefault();
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password);
+
             dispatch(loginActions.setLogout());
             navigate('/login');
 

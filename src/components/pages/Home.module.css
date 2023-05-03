@@ -25,8 +25,8 @@
 }
 
 .user h2 {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .buttons{
@@ -37,7 +37,7 @@
 .buttons a {
   color: white;
   text-decoration: none;
-  border: 2px solid yellow;
+  border: 2px solid white;
   padding: 0.5rem 1rem;
   border-radius: 0.2rem;
 }
