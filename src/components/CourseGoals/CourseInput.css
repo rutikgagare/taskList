@@ -16,6 +16,7 @@
   font: inherit;
   line-height: 1.5rem;
   padding: 0 0.25rem;
+  margin: 1rem 0;
 }
 
 .form-control input:focus {
