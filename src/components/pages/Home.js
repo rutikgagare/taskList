@@ -90,6 +90,10 @@ const Home = () => {
       <section className={classes.goals}>
         <CourseGoalList></CourseGoalList>
       </section>
+
+      <footer>
+        <p>Designed with<span> ❤ </span>by RG</p>
+      </footer>
     </div>
   );
 };
