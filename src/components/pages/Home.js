@@ -65,21 +65,16 @@ const Home = () => {
 
   return (
     <div className={classes.main}>
-      <section className={classes.user}>
+      <section className={classes.navbar}>
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
   
         <div className={classes.buttons}>
           {!isLogin && <button onClick={()=>navigate('/login')}>Login</button>}
           {!isLogin && <button onClick={()=>navigate('/signup')}>SignUp</button>}
+          {isLogin && <i onClick={()=>{navigate('/account')}} class="fa-solid fa-user"></i>}
           {isLogin && <button onClick={logoutHandler}>Logout</button>}
         </div>
       </section>
-
-      <section className={classes.userDetails}>
-        {isLogin && <p>Hello {auth.currentUser.email}</p>}
-        {/* <p>Hello {auth.currentUser.email}</p> */}
-      </section>
-
       <section className={classes.goalForm}>
         <CourseInput />
       </section>

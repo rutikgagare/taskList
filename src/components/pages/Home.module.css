@@ -21,18 +21,19 @@
   margin-top: 3rem;
 }
 
-.user {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* top: 0; */
+  top: 0;
+  position: sticky;
   text-align: center;
   background-color: #8b005d;
   color: white;
   padding: 0.2rem 2rem;
 }
 
-.user h2 {
+.navbar h2 {
   font-size: 1.3rem;
   font-weight: 500;
 }
