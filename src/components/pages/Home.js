@@ -13,23 +13,18 @@ let send = false;
 
 const Home = () => {
 
-  const navigate = useNavigate();
+  const isLogin = useSelector(state => state.login.isLogedIn);
+  const items = useSelector(state => state.task.items);
 
   useEffect(()=>{
-    auth.onAuthStateChanged(function(user) {
-      if (user) {
-       console.log("Hello");
-      } else {
-       console.log("World");
+    auth.onAuthStateChanged((user) => {
+      if(user) {
+        dispatch(loginActions.setLogedIn());
       }
     });
-    
-  },[])
+  },[isLogin]);
 
-  const isLogin = useSelector(state => state.login.isLogedIn);
-  console.log("user" + auth.currentUser);
-
-  const items = useSelector(state => state.task.items);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -82,6 +77,7 @@ const Home = () => {
 
       <section className={classes.userDetails}>
         {isLogin && <p>Hello {auth.currentUser.email}</p>}
+        {/* <p>Hello {auth.currentUser.email}</p> */}
       </section>
 
       <section className={classes.goalForm}>
