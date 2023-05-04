@@ -110,4 +110,7 @@
     .loginForm input{
         padding: 0.3rem 0.5rem;
     }
+    .main{
+        height: 40rem;
+    }
   }
