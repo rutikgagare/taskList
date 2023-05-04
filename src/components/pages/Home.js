@@ -22,7 +22,7 @@ const Home = () => {
         dispatch(loginActions.setLogedIn());
       }
     });
-  },[isLogin]);
+  },[]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
