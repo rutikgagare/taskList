@@ -12,9 +12,31 @@
 
 .goal-item h3{
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .goal-item-icons i{
   margin: 0rem 0.5rem;
+}
+
+.goal-item-inputBox input{
+  padding: 0.5rem;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+}
+
+.goal-item-inputBox button{
+  padding: 0.5rem 1rem;
+  margin:0 0.2rem;
+  border-radius: 0.2rem;
+  background: #8b005d;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 1rem;
 }

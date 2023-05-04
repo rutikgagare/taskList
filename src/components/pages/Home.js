@@ -4,23 +4,33 @@ import classes from './Home.module.css';
 import { auth } from '../../config/firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { taskListActions } from '../../store/taskListSlice';
+import { loginActions } from '../../store/loginSlice';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 let send = false;
 
 const Home = () => {
+
+  // useEffect(()=>{
+  //   let user = auth.currentUser;
+  //   console.log("hello");
+  //   if(user){
+  //     dispatch(loginActions.setLogedIn());
+  //   }
+  // },[])
+
   const isLogin = useSelector(state => state.login.isLogedIn);
-  console.log("isLogin"+isLogin);
+  console.log("user" + auth.currentUser);
 
   const items = useSelector(state => state.task.items);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if(isLogin){
-      let user = auth.currentUser.email.substring(0, 4);
+      let uid = auth.currentUser.uid;
       const sendData = async () => {
-        await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${user}.json`, {
+        await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${uid}.json`, {
           method: "PUT",
           body: JSON.stringify({items:items})
         })
@@ -36,9 +46,9 @@ const Home = () => {
 
   useEffect(() => {
     if(isLogin) {
-      let user = auth.currentUser.email.substring(0, 4);
+      let uid = auth.currentUser.uid;
       const fetchData = async () => {
-        const response = await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${user}.json`);
+        const response = await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${uid}.json`);
         const data = await response.json();
         dispatch(taskListActions.replace(data.items));
       }

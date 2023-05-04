@@ -14,6 +14,16 @@ const taskListSlice = createSlice({
         },
         replace:(state,action)=>{
             state.items = action.payload;
+        },
+        updateTask:(state,action)=>{
+            state.items = state.items.map((item)=>{
+                if(item.id == action.payload.id){
+                    return {id:item.id,text:action.payload.text};
+                }
+                else{
+                    return item;
+                }
+            });
         }
     }
 });
