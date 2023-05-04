@@ -52,7 +52,7 @@
     width: 100%;
     display: block;
     margin: 0.5rem 0;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem;
     outline: none;
     border-radius: 0.2rem;
     font-size: 1rem;
@@ -78,6 +78,10 @@
     gap: 0.5rem;
 }
 
+.loginForm hr{
+    margin: 2rem 0;
+}
+
 .loginForm .google{
     background-color: transparent;
     color: black;
@@ -86,6 +90,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    margin:0rem;
 }
 
 .loginForm .google img{
@@ -101,5 +106,8 @@
 @media screen and (max-width: 700px) {
     .loginForm{
       width: 95%;
+    }
+    .loginForm input{
+        padding: 0.3rem 0.5rem;
     }
   }

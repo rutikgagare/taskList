@@ -64,7 +64,10 @@ const Login = () => {
 
                     <button type="submit">Login <i class="fa-solid fa-arrow-right"></i></button>
                     <span>Don't have an account? <Link to="/signup">Sign up</Link></span>
-                     <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
+
+                    <div><hr/></div>
+
+                    <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
                 </form>
             </div>
 
