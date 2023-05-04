@@ -19,15 +19,20 @@
   margin: 0rem 0.5rem;
 }
 
+
+.goal-item-inputBox{
+  display: flex;
+  justify-content: space-between;
+}
+
 .goal-item-inputBox input{
-  width: 40%;
+  width: 50%;
   padding: 0.5rem;
   outline: none;
   background-color: transparent;
   color: white;
   border: 1px solid white;
   border-radius: 0.2rem;
-  margin: 0 0.5rem;
   font-size: 1rem;
 }
 
@@ -40,4 +45,11 @@
   border: none;
   outline: none;
   font-size: 1rem;
+}
+
+
+@media screen and (max-width: 700px) {
+  .goal-item-inputBox input{
+    width: 40%;
+  }
 }
