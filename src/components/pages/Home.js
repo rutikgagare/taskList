@@ -75,9 +75,11 @@ const Home = () => {
           {isLogin && <button onClick={logoutHandler}>Logout</button>}
         </div>
       </section>
+
       <section className={classes.goalForm}>
         <CourseInput />
       </section>
+      
       <section className={classes.goals}>
         <CourseGoalList></CourseGoalList>
       </section>
