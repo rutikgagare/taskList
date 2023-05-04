@@ -69,7 +69,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className={classes.main}>
       <section className={classes.user}>
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
   
@@ -91,9 +91,9 @@ const Home = () => {
         <CourseGoalList></CourseGoalList>
       </section>
 
-      <footer>
+      {/* <footer>
         <p>Designed with<span> ❤ </span>by RG</p>
-      </footer>
+      </footer> */}
     </div>
   );
 };

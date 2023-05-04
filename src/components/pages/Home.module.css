@@ -1,3 +1,4 @@
+
 .goals {
   width: 35rem;
   max-width: 90%;
@@ -76,6 +77,7 @@ footer{
   bottom: 1rem;
   left: 0rem;
   width: 100%;
+  position: sticky;
 }
 
 footer p{
