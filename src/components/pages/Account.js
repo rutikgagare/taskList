@@ -5,10 +5,12 @@ import classes from './Account.module.css';
 const Account = () => {
   return (
     <div className={classes.account}>
-        <h2>User Profile</h2>
-        <h3>Email:{auth.currentUser.email}</h3>
+        <class className={classes.user}>
+            <h2>User Profile</h2>
+            <p>Email:{auth.currentUser.email}</p>
+        </class>
     </div>
   )
 }
 
-export default Account
+export default Account;
