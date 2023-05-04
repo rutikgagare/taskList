@@ -10,7 +10,6 @@ import { googleProvider } from '../../config/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import google from '../../Images/google.png';
 
-
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -63,9 +62,9 @@ const Login = () => {
                     <input type="email" placeholder='Email address' onChange={(e) => { setEmail(e.target.value) }} />
                     <input type="password" placeholder='Password' onChange={(e) => { setPassword(e.target.value) }} />
 
-                    <button type="submit">Login</button>
+                    <button type="submit">Login <i class="fa-solid fa-arrow-right"></i></button>
                     <span>Don't have an account? <Link to="/signup">Sign up</Link></span>
-                    <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
+                     <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
                 </form>
             </div>
 

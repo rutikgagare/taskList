@@ -74,7 +74,7 @@ const Home = () => {
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
   
         <div className={classes.buttons}>
-          <button onClick={()=>navigate('/login')}><i class="fa-solid fa-user-plus"></i> Login</button>
+          <button onClick={()=>navigate('/login')}>Login</button>
           <button onClick={()=>navigate('/signup')}>SignUp</button>
           <button onClick={logoutHandler}>Logout</button>
         </div>

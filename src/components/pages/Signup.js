@@ -60,7 +60,7 @@ const Signup = () => {
                 <form onSubmit={registrationHandler} >
                     <input type="email" placeholder='Email address' onChange={(e) => { setEmail(e.target.value) }} />
                     <input type="password" placeholder='Password' onChange={(e) => { setPassword(e.target.value) }} />
-                    <button type="submit">Register</button>
+                    <button type="submit">Register <i class="fa-solid fa-arrow-right"></i></button>
                     <span>Already have a account? <Link to="/login">Log in</Link></span>
                     <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
                 </form>
