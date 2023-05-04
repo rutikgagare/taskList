@@ -69,6 +69,22 @@
   font-weight: 400;
 }
 
+footer{
+  color: white;
+  position: absolute;
+  bottom: 1rem;
+  left: 0rem;
+  width: 100%;
+}
+
+footer p{
+  text-align: center;
+}
+
+footer span{
+  color: red;
+}
+
 @media screen and (max-width: 700px) {
   .buttons button{
     padding: 0.5rem;
