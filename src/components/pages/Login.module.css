@@ -37,8 +37,8 @@
 }
 
 .loginForm h2{
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1.5remrem;
+    font-weight: 600;
     margin: 0rem auto;
     margin-bottom: 2rem;
 }
@@ -52,7 +52,7 @@
     width: 100%;
     display: block;
     margin: 0.5rem 0;
-    padding: 0.5rem;
+    padding: 0.3rem 0.5rem;
     outline: none;
     border-radius: 0.2rem;
     font-size: 1rem;
@@ -65,7 +65,7 @@
 
 .loginForm button{
     margin: 1rem 0;
-    padding: 0.8rem;
+    padding: 0.6rem;
     font-size: 1.1rem;
     background-color: #8b005d;
     outline: none;
