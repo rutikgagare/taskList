@@ -69,9 +69,9 @@ const Home = () => {
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
   
         <div className={classes.buttons}>
-          <button onClick={()=>navigate('/login')}>Login</button>
-          <button onClick={()=>navigate('/signup')}>SignUp</button>
-          <button onClick={logoutHandler}>Logout</button>
+          {!isLogin && <button onClick={()=>navigate('/login')}>Login</button>}
+          {!isLogin && <button onClick={()=>navigate('/signup')}>SignUp</button>}
+          {isLogin && <button onClick={logoutHandler}>Logout</button>}
         </div>
       </section>
 
