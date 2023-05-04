@@ -45,16 +45,18 @@
   font-size: 1.2rem;
 }
 
-.buttons a {
+.buttons button {
   color: white;
+  background-color: transparent;
   text-decoration: none;
   border: 1px solid white;
   padding: 0.5rem 1rem;
   border-radius: 0.2rem;
+  font-size: 0.9rem;
 }
 
-.buttons a:hover{
-  transform: scale(1.1);
+.buttons button:hover{
+  transform: scale(1.05);
 }
 
 .userDetails{

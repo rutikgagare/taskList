@@ -74,6 +74,21 @@
     border-radius: 0.2rem;
 }
 
+.loginForm .google{
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.loginForm .google img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .loginForm span a{
     color: green;
 }

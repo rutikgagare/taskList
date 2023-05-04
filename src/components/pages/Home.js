@@ -5,20 +5,26 @@ import { auth } from '../../config/firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { taskListActions } from '../../store/taskListSlice';
 import { loginActions } from '../../store/loginSlice';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { signOut } from 'firebase/auth';
 
 let send = false;
 
 const Home = () => {
 
-  // useEffect(()=>{
-  //   let user = auth.currentUser;
-  //   console.log("hello");
-  //   if(user){
-  //     dispatch(loginActions.setLogedIn());
-  //   }
-  // },[])
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    auth.onAuthStateChanged(function(user) {
+      if (user) {
+       console.log("Hello");
+      } else {
+       console.log("World");
+      }
+    });
+    
+  },[])
 
   const isLogin = useSelector(state => state.login.isLogedIn);
   console.log("user" + auth.currentUser);
@@ -56,16 +62,21 @@ const Home = () => {
     }
   }, [isLogin]);
 
+  const logoutHandler = async () =>{
+    dispatch(loginActions.setLogout());
+    dispatch(taskListActions.replace([]))
+    const response = await signOut(auth)
+  }
+
   return (
     <div>
       <section className={classes.user}>
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
-        {/* <h2>Task List {isLogin && auth.currentUser.email.substring(0,auth.currentUser.email.length - 10)}</h2> */}
-
+  
         <div className={classes.buttons}>
-          {/* {isLogin && <i class="fa-solid fa-user"></i>} */}
-          <Link to="login">Login</Link>
-          <Link to="register">Register</Link>
+          <button onClick={()=>navigate('/login')}>Login</button>
+          <button onClick={()=>navigate('/signup')}>SignUp</button>
+          <button onClick={logoutHandler}>Logout</button>
         </div>
       </section>
 

@@ -6,7 +6,10 @@ import { auth } from '../../config/firebase';
 import { useDispatch } from 'react-redux';
 import { loginActions } from '../../store/loginSlice';
 import { taskListActions } from '../../store/taskListSlice';
-import cross from '../../Images/cross.png';
+import { googleProvider } from '../../config/firebase';
+import { signInWithPopup } from 'firebase/auth';
+import google from '../../Images/google.png';
+
 
 const Login = () => {
     const navigate = useNavigate();
@@ -34,6 +37,19 @@ const Login = () => {
         navigate('/');
     }
 
+    const signInWithGoogleHandler = async () => {
+        try{
+
+            await signInWithPopup(auth,googleProvider);
+            dispatch(loginActions.setLogout());
+            dispatch(taskListActions.replace([]));
+            dispatch(loginActions.setLogedIn());
+            navigate('/');
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     return (
         <div className={classes.main}>
 
@@ -48,7 +64,8 @@ const Login = () => {
                     <input type="password" placeholder='Password' onChange={(e) => { setPassword(e.target.value) }} />
 
                     <button type="submit">Login</button>
-                    <span>Don't have an account? <Link to="/register">Sign up</Link></span>
+                    <span>Don't have an account? <Link to="/signup">Sign up</Link></span>
+                    <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
                 </form>
             </div>
 
