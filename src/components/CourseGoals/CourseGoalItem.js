@@ -22,14 +22,14 @@ const CourseGoalItem = props => {
     setInputBox(false);
   }
 
-  const updateTaskHandler = () =>{
+  const updateTaskHandler = () => {
     console.log(editedTask);
 
-    if(editedTask.length === 0){
+    if (editedTask.length === 0) {
       return;
     }
-    dispatch(taskListActions.updateTask({id:props.id,text:editedTask}));
-    hideInputBox(); 
+    dispatch(taskListActions.updateTask({ id: props.id, text: editedTask }));
+    hideInputBox();
   }
 
   return (
@@ -43,11 +43,14 @@ const CourseGoalItem = props => {
         </div>
       </li>
 
-      {inputBox && 
+      {inputBox &&
         <div className='goal-item-inputBox'>
-          <input type="text" value={editedTask} placeholder='Edit task' onChange={(e)=>{setEditedTask(e.target.value)}}/>
-          <button style={{backgroundColor:'green'}} onClick={updateTaskHandler}>Update</button>
-          <button style={{backgroundColor:'red'}} onClick={hideInputBox}>Cancel</button>
+          <input type="text" value={editedTask} placeholder='Edit task' onChange={(e) => { setEditedTask(e.target.value) }} />
+
+          <div className="buttons">
+            <button style={{ backgroundColor: 'green' }} onClick={updateTaskHandler}>Update</button>
+            <button style={{ backgroundColor: 'red' }} onClick={hideInputBox}>Cancel</button>
+          </div>
         </div>
       }
     </>
