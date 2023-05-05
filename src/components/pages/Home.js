@@ -1,4 +1,5 @@
 import CourseGoalList from '../CourseGoals/CourseGoalList';
+import CourseGoalListToday from '../CourseGoals/CourseGoalListToady';
 import CourseInput from '../CourseGoals/CourseInput';
 import classes from './Home.module.css';
 import { auth } from '../../config/firebase';
@@ -6,8 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { taskListActions } from '../../store/taskListSlice';
 import { loginActions } from '../../store/loginSlice';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { signOut } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import { signOut } from 'firebase/auth'
 
 let send = false;
 
@@ -15,38 +16,39 @@ const Home = () => {
 
   const isLogin = useSelector(state => state.login.isLogedIn);
   const items = useSelector(state => state.task.items);
+  const [filter, setFilter] = useState("all");
 
-  useEffect(()=>{
+  useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      if(user) {
+      if (user) {
         dispatch(loginActions.setLogedIn());
       }
     });
-  },[]);
+  }, []);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(isLogin){
+    if (isLogin) {
       let uid = auth.currentUser.uid;
       const sendData = async () => {
         await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${uid}.json`, {
           method: "PUT",
-          body: JSON.stringify({items:items})
+          body: JSON.stringify({ items: items })
         })
       }
 
-      if(send === false){
+      if (send === false) {
         send = true;
         return;
       }
       sendData();
     }
-  },[items]);
+  }, [items]);
 
   useEffect(() => {
-    if(isLogin) {
+    if (isLogin) {
       let uid = auth.currentUser.uid;
       const fetchData = async () => {
         const response = await fetch(`https://tasklist-6a4e5-default-rtdb.firebaseio.com/${uid}.json`);
@@ -57,7 +59,7 @@ const Home = () => {
     }
   }, [isLogin]);
 
-  const logoutHandler = async () =>{
+  const logoutHandler = async () => {
     dispatch(loginActions.setLogout());
     dispatch(taskListActions.replace([]))
     const response = await signOut(auth)
@@ -67,11 +69,11 @@ const Home = () => {
     <div className={classes.main}>
       <section className={classes.navbar}>
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
-  
+
         <div className={classes.buttons}>
-          {!isLogin && <button onClick={()=>navigate('/login')}>Login</button>}
-          {!isLogin && <button onClick={()=>navigate('/signup')}>SignUp</button>}
-          {isLogin && <i onClick={()=>{navigate('/account')}} class="fa-solid fa-user"></i>}
+          {!isLogin && <button onClick={() => navigate('/login')}>Login</button>}
+          {!isLogin && <button onClick={() => navigate('/signup')}>SignUp</button>}
+          {isLogin && <i onClick={() => { navigate('/account') }} class="fa-solid fa-user"></i>}
           {isLogin && <button onClick={logoutHandler}>Logout</button>}
         </div>
       </section>
@@ -79,9 +81,16 @@ const Home = () => {
       <section className={classes.goalForm}>
         <CourseInput />
       </section>
-      
+
       <section className={classes.goals}>
-        <CourseGoalList></CourseGoalList>
+        {items.length > 0 &&
+          <div className={classes.filter}>
+            <button onClick={() => { setFilter("all") }} className={filter === "all" ? classes.active:""}>All Task</button>
+            <button onClick={() => { setFilter("today") }} className={filter === "today" ? classes.active:""}>Today's Task</button>
+          </div>}
+        {filter === "all" && <CourseGoalList></CourseGoalList>}
+        {filter === "today" && <CourseGoalListToday></CourseGoalListToday>}
+
       </section>
 
       {/* <footer>

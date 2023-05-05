@@ -9,6 +9,7 @@ const CourseInput = props => {
   const isLogin = useSelector(state => state.login.isLogedIn);
 
   const [enteredValue, setEnteredValue] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
   const [isValid, setIsValid] = useState(true);
 
   const goalInputChangeHandler = event => {
@@ -16,6 +17,10 @@ const CourseInput = props => {
       setIsValid(true);
     }
     setEnteredValue(event.target.value);
+  };
+
+  const goalDateChangeHandler = event => {
+    setEnteredDate(event.target.value);
   };
 
   const formSubmitHandler = event => {
@@ -27,17 +32,21 @@ const CourseInput = props => {
     }
     
     if(isLogin){
-      dispatch(taskListActions.addTask({id:Math.random().toString(),text:enteredValue}));
+      dispatch(taskListActions.addTask({id:Math.random().toString(),text:enteredValue,deadline:enteredDate}));
     }
 
     setEnteredValue('');
+    setEnteredDate('');
   };
 
   return (
     <form onSubmit={formSubmitHandler}>
       <div className={`form-control ${!isValid ? 'invalid':''}`}>
-        <label>To Do</label>
-        <input type="text" value={enteredValue} onChange={goalInputChangeHandler} />
+        <label htmlFor='task'>To Do</label>
+        <input type="text" id='task' value={enteredValue} onChange={goalInputChangeHandler} />
+
+        <label htmlFor="date">Deadline</label>
+        <input type="date" value={enteredDate} onChange={goalDateChangeHandler} />
         {!isLogin && <p style={{color:"red"}}>Please Login to Save your task</p>}
       </div>
       <Button type="submit">Add Task</Button>
