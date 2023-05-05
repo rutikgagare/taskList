@@ -39,6 +39,7 @@
 .goal-item-inputBox{
   display: flex;
   justify-content: space-between;
+  margin: 1rem 0;
 }
 
 .goal-item-inputBox input{

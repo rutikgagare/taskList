@@ -25,6 +25,16 @@ const taskListSlice = createSlice({
                 }
             });
         },
+        updateDate:(state,action)=>{
+            state.items = state.items.map((item)=>{
+                if(item.id === action.payload.id){
+                    return {id:item.id,text:item.text,deadline:action.payload.deadline,status:item.status};
+                }
+                else{
+                    return item;
+                }
+            });
+        },
         updateStatus:(state,action)=>{
             state.items = state.items.map((item)=>{
                 if(item.id === action.payload.id){
