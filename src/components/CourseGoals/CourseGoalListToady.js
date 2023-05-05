@@ -6,11 +6,17 @@ import { useSelector } from 'react-redux';
 const CourseGoalListToday = props => {
   const items = useSelector(state => state.task.items);
 
-  const today = new Date().toISOString().slice(0, 10);
-  
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
   let todayItems = items.filter((item)=>{
-    return item.deadline === today;
+    const deadline = new Date(item.deadline);
+    deadline.setHours(0,0,0,0);
+
+    return !(deadline > today) && !(deadline < today);
   })
+
+  console.log(todayItems);
     
   return (
     <ul className="goal-list">
