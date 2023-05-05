@@ -5,8 +5,14 @@ import { useSelector } from 'react-redux';
 
 const CourseGoalList = props => {
   const items = useSelector(state => state.task.items);
+
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
   let AllItems = items.filter((item)=>{
-    return item.status !== "completed";
+    const deadline = new Date(item.deadline);
+    deadline.setHours(0,0,0,0);
+    return item.status !== "completed" && !(deadline < today);
   })
 
   return (

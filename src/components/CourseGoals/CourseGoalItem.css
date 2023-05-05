@@ -14,10 +14,8 @@
   width:60%;
 }
 
-.goal-item.completed{
-  /* text-decoration: line-through; */
-  background-color: #b98eaf;
-  opacity: 55%;
+.goal-item .completed{
+  text-decoration: line-through;
 }
 
 .goal-item-description h3{

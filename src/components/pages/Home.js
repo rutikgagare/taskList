@@ -89,10 +89,10 @@ const Home = () => {
         {items.length > 0 &&
           <div className={classes.filter}>
 
-            <button onClick={() => { setFilter("all") }} className={filter === "all" ? classes.active:""}>All Task</button>
-            <button onClick={() => { setFilter("today") }} className={filter === "today" ? classes.active:""}>Today's Task</button>
-            <button onClick={() => { setFilter("pending") }} className={filter === "pending" ? classes.active:""}>Pending Task</button>
-            <button onClick={() => { setFilter("completed") }} className={filter === "completed" ? classes.active:""}>Completed Task</button>
+            <button onClick={() => { setFilter("all") }} className={filter === "all" ? classes.active:""}>All active task</button>
+            <button onClick={() => { setFilter("today") }} className={filter === "today" ? classes.active:""}>Today's task</button>
+            <button onClick={() => { setFilter("pending") }} className={filter === "pending" ? classes.active:""}>Pending task</button>
+            <button onClick={() => { setFilter("completed") }} className={filter === "completed" ? classes.active:""}>Completed task</button>
 
           </div>}
 

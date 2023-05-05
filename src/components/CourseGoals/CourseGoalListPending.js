@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseGoalItem from './CourseGoalItem';
 import './CourseGoalList.css';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 const CourseGoalListPending = props => {
   const items = useSelector(state => state.task.items);

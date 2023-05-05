@@ -33,9 +33,9 @@ const CourseGoalItem = props => {
 
   return (
     <>
-      <li className='goal-item'>
+      <li className="goal-item">
         <div className="goal-item-description">
-          <h3>{props.text}</h3>
+          <h3 className={props.status ==="completed" ? "completed" : "" }>{props.text}</h3>
           <h5>{props.deadline}</h5>
         </div>
       
