@@ -57,6 +57,11 @@
   font-size: 1rem;
 }
 
+.goal-item-inputBox .date{
+  background-color: white;
+  color: black;
+}
+
 .goal-item-inputBox button{
   padding: 0.5rem 1rem;
   margin:0 0.2rem;

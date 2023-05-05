@@ -70,7 +70,7 @@ const CourseGoalItem = props => {
 
       {dateBox &&
         <div className='goal-item-inputBox'>
-          <input type="date" value={editedDate}  onChange={(e) => {setEditedDate(e.target.value)}} />
+          <input type="date" value={editedDate} placeholder='date' className='date'  onChange={(e) => {setEditedDate(e.target.value)}} />
 
           <div className="buttons">
             <button style={{ backgroundColor: 'green' }} onClick={updateDateHandler}>Update</button>
