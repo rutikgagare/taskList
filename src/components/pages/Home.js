@@ -1,4 +1,4 @@
-import CourseGoalListUpcoming from '../CourseGoals/CourseGoalList';
+import CourseGoalListUpcoming from '../CourseGoals/CourseGoalListUpcoming';
 import CourseGoalListToday from '../CourseGoals/CourseGoalListToady';
 import CourseGoalListPending from '../CourseGoals/CourseGoalListPending';
 import CourseGoalListCompleted from '../CourseGoals/CourseGoalListCompleted';
