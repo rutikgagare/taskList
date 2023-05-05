@@ -36,7 +36,7 @@ const CourseGoalItem = props => {
       <li className='goal-item'>
         <div className="goal-item-description">
           <h3>{props.text}</h3>
-          <h4>{props.deadline}</h4>
+          <h5>{props.deadline}</h5>
         </div>
       
         <div className="goal-item-icons">
