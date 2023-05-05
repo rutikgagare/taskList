@@ -53,7 +53,7 @@ const CourseGoalItem = props => {
           {props.status !== "completed" && <i class="fa-sharp fa-solid fa-pen-to-square" onClick={toggleInputBox}></i>}
           {props.status !== "completed" && <i class="fas fa-calendar"  onClick={toggleDateBox}></i>}
           <i class="fa-solid fa-trash" onClick={deleteHandler}></i>
-          {props.status !== "completed" && <i class="fas fa-check fa-xl" onClick={completeTaskHandler}></i>}
+          {props.status !== "completed" && <i class="fas fa-check" onClick={completeTaskHandler}></i>}
         </div>
       </li>
 

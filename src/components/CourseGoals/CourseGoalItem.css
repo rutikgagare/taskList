@@ -34,9 +34,10 @@
 
 .goal-item-icons{
   width: 40%;
-}
-.goal-item-icons i{
-  margin: 0rem 0.3rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: right;
+  gap: 0.8rem;
 }
 
 .goal-item-inputBox{
