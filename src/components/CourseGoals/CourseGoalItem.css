@@ -7,7 +7,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2rem 2rem;
+  padding:0.5rem 1rem;
+}
+
+.goal-item-description{
+  width: 70%;
 }
 
 .goal-item.completed{
@@ -16,15 +20,20 @@
   opacity: 60%;
 }
 
-.goal-item h3{
+.goal-item-description h3{
   font-weight: 400;
   font-size: 1.1rem;
+  line-height: 0.3cm;
+}
+
+.goal-item-description h4{
+  line-height: 0.1cm;
+  font-weight: 0.2rem;
 }
 
 .goal-item-icons i{
   margin: 0rem 0.5rem;
 }
-
 
 .goal-item-inputBox{
   display: flex;

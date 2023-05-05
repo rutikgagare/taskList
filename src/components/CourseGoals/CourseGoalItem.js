@@ -34,9 +34,11 @@ const CourseGoalItem = props => {
   return (
     <>
       <li className='goal-item'>
-        <h3>{props.text}</h3>
-        <span>{props.deadline}</span>
-
+        <div className="goal-item-description">
+          <h3>{props.text}</h3>
+          <h4>{props.deadline}</h4>
+        </div>
+      
         <div className="goal-item-icons">
           {props.status !== "completed" && <i class="fa-sharp fa-solid fa-pen-to-square" onClick={toggleInputBox}></i>}
           <i class="fa-solid fa-trash" onClick={deleteHandler}></i>
