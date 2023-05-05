@@ -1,4 +1,4 @@
-import CourseGoalList from '../CourseGoals/CourseGoalList';
+import CourseGoalListUpcoming from '../CourseGoals/CourseGoalList';
 import CourseGoalListToday from '../CourseGoals/CourseGoalListToady';
 import CourseGoalListPending from '../CourseGoals/CourseGoalListPending';
 import CourseGoalListCompleted from '../CourseGoals/CourseGoalListCompleted';
@@ -19,7 +19,7 @@ const Home = () => {
 
   const isLogin = useSelector(state => state.login.isLogedIn);
   const items = useSelector(state => state.task.items);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("today");
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -79,6 +79,7 @@ const Home = () => {
           {isLogin && <i onClick={() => { navigate('/account') }} class="fa-solid fa-user"></i>}
           {isLogin && <button onClick={logoutHandler}>Logout</button>}
         </div>
+        
       </section>
 
       <section className={classes.goalForm}>
@@ -89,15 +90,15 @@ const Home = () => {
         {items.length > 0 &&
           <div className={classes.filter}>
 
-            <button onClick={() => { setFilter("all") }} className={filter === "all" ? classes.active:""}>All active task</button>
             <button onClick={() => { setFilter("today") }} className={filter === "today" ? classes.active:""}>Today's task</button>
+            <button onClick={() => { setFilter("upcoming") }} className={filter === "upcoming" ? classes.active:""}>Upcoming task</button>
             <button onClick={() => { setFilter("pending") }} className={filter === "pending" ? classes.active:""}>Pending task</button>
             <button onClick={() => { setFilter("completed") }} className={filter === "completed" ? classes.active:""}>Completed task</button>
 
           </div>}
 
-        {filter === "all" && <CourseGoalList></CourseGoalList>}
         {filter === "today" && <CourseGoalListToday></CourseGoalListToday>}
+        {filter === "upcoming" && <CourseGoalListUpcoming></CourseGoalListUpcoming>}
         {filter === "pending" && <CourseGoalListPending></CourseGoalListPending>}
         {filter === "completed" && <CourseGoalListCompleted></CourseGoalListCompleted>}
 

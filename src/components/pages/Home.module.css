@@ -42,7 +42,7 @@
   margin-top: 3rem;
 }
 
-.navbar {
+.navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +54,7 @@
   padding: 0.2rem 2rem;
 }
 
-.navbar h2 {
+.navbar h2{
   font-size: 1.3rem;
   font-weight: 500;
 }
@@ -70,7 +70,7 @@
   margin: 0 0.5rem;
 }
 
-.buttons button {
+.buttons button{
   color: white;
   background-color: transparent;
   text-decoration: none;
@@ -94,13 +94,12 @@
 }
 
 footer{
-  margin-top: 1rem;
+  margin-top: 12rem;
+  position: static;
   color: white;
-  position: absolute;
-  bottom: 1rem;
+  bottom: 0rem;
   left: 0rem;
   width: 100%;
-  position: sticky;
 }
 
 footer p{

@@ -36,7 +36,7 @@ const CourseGoalItem = props => {
       <li className="goal-item">
         <div className="goal-item-description">
           <h3 className={props.status ==="completed" ? "completed" : "" }>{props.text}</h3>
-          <h5>{props.deadline}</h5>
+          <h4><i class="fas fa-calendar"></i>   {props.deadline}</h4>
         </div>
       
         <div className="goal-item-icons">
