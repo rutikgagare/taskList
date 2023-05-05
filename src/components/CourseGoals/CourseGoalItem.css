@@ -17,18 +17,17 @@
 .goal-item.completed{
   /* text-decoration: line-through; */
   background-color: #b98eaf;
-  opacity: 50%;
+  opacity: 55%;
 }
 
 .goal-item-description h3{
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 0.7cm;
 }
 
-.goal-item-description h4{
-  line-height: 0.1cm;
-  font-weight: 0.2rem;
+.goal-item-description h5{
+  line-height: 0.1cm;;
 }
 
 .goal-item-icons i{
