@@ -1,5 +1,8 @@
 import CourseGoalList from '../CourseGoals/CourseGoalList';
 import CourseGoalListToday from '../CourseGoals/CourseGoalListToady';
+import CourseGoalListPending from '../CourseGoals/CourseGoalListPending';
+import CourseGoalListCompleted from '../CourseGoals/CourseGoalListCompleted';
+
 import CourseInput from '../CourseGoals/CourseInput';
 import classes from './Home.module.css';
 import { auth } from '../../config/firebase';
@@ -85,11 +88,18 @@ const Home = () => {
       <section className={classes.goals}>
         {items.length > 0 &&
           <div className={classes.filter}>
+
             <button onClick={() => { setFilter("all") }} className={filter === "all" ? classes.active:""}>All Task</button>
             <button onClick={() => { setFilter("today") }} className={filter === "today" ? classes.active:""}>Today's Task</button>
+            <button onClick={() => { setFilter("pending") }} className={filter === "pending" ? classes.active:""}>Pending Task</button>
+            <button onClick={() => { setFilter("completed") }} className={filter === "completed" ? classes.active:""}>Completed Task</button>
+
           </div>}
+
         {filter === "all" && <CourseGoalList></CourseGoalList>}
         {filter === "today" && <CourseGoalListToday></CourseGoalListToday>}
+        {filter === "pending" && <CourseGoalListPending></CourseGoalListPending>}
+        {filter === "completed" && <CourseGoalListCompleted></CourseGoalListCompleted>}
 
       </section>
 

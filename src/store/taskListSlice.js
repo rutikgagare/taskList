@@ -18,7 +18,17 @@ const taskListSlice = createSlice({
         updateTask:(state,action)=>{
             state.items = state.items.map((item)=>{
                 if(item.id === action.payload.id){
-                    return {id:item.id,text:action.payload.text,deadline:action.payload.deadline};
+                    return {id:item.id,text:action.payload.text,deadline:item.deadline,status:item.status};
+                }
+                else{
+                    return item;
+                }
+            });
+        },
+        updateStatus:(state,action)=>{
+            state.items = state.items.map((item)=>{
+                if(item.id === action.payload.id){
+                    return {id:item.id,text:item.text,deadline:item.deadline,status:action.payload.status};
                 }
                 else{
                     return item;

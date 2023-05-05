@@ -13,13 +13,8 @@ const CourseGoalItem = props => {
     dispatch(taskListActions.removeTask(props.id))
   };
 
-  const showInputBox = () => {
-    setInputBox(true);
-  }
-
-  const hideInputBox = () => {
-    setEditedTask('');
-    setInputBox(false);
+  const toggleInputBox = () => {
+    setInputBox((prev)=>!prev);
   }
 
   const updateTaskHandler = () => {
@@ -29,17 +24,23 @@ const CourseGoalItem = props => {
       return;
     }
     dispatch(taskListActions.updateTask({ id: props.id, text: editedTask }));
-    hideInputBox();
+    toggleInputBox();
+  }
+
+  const completeTaskHandler = () =>{
+    dispatch(taskListActions.updateStatus({id:props.id,status:"completed"}));
   }
 
   return (
     <>
-      <li className="goal-item">
+      <li className='goal-item'>
         <h3>{props.text}</h3>
+        <span>{props.deadline}</span>
 
         <div className="goal-item-icons">
-          <i class="fa-sharp fa-solid fa-pen-to-square" onClick={showInputBox}></i>
+          {props.status !== "completed" && <i class="fa-sharp fa-solid fa-pen-to-square" onClick={toggleInputBox}></i>}
           <i class="fa-solid fa-trash" onClick={deleteHandler}></i>
+          {props.status !== "completed" && <i class="fas fa-check fa-xl" onClick={completeTaskHandler}></i>}   
         </div>
       </li>
 
@@ -49,7 +50,7 @@ const CourseGoalItem = props => {
 
           <div className="buttons">
             <button style={{ backgroundColor: 'green' }} onClick={updateTaskHandler}>Update</button>
-            <button style={{ backgroundColor: 'red' }} onClick={hideInputBox}>Cancel</button>
+            <button style={{ backgroundColor: 'red' }} onClick={toggleInputBox}>Cancel</button>
           </div>
         </div>
       }

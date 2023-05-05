@@ -32,7 +32,8 @@ const CourseInput = props => {
     }
     
     if(isLogin){
-      dispatch(taskListActions.addTask({id:Math.random().toString(),text:enteredValue,deadline:enteredDate}));
+      const today = new Date().toISOString().slice(0, 10);
+      dispatch(taskListActions.addTask({id:Math.random().toString(),text:enteredValue,deadline:enteredDate,status:"active"}));
     }
 
     setEnteredValue('');

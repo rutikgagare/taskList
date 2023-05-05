@@ -3,18 +3,16 @@ import CourseGoalItem from './CourseGoalItem';
 import './CourseGoalList.css';
 import { useSelector } from 'react-redux';
 
-const CourseGoalListToday = props => {
+const CourseGoalListCompleted = props => {
   const items = useSelector(state => state.task.items);
 
-  const today = new Date().toISOString().slice(0, 10);
-  
-  let todayItems = items.filter((item)=>{
-    return item.deadline === today;
+  let completedItems = items.filter((item)=>{
+    return item.status === "completed";
   })
     
   return (
     <ul className="goal-list">
-      {todayItems.map(goal => (
+      {completedItems.map(goal => (
         <CourseGoalItem
           key={goal.id}
           id={goal.id}
@@ -28,4 +26,4 @@ const CourseGoalListToday = props => {
   );
 };
 
-export default CourseGoalListToday;
+export default CourseGoalListCompleted;
