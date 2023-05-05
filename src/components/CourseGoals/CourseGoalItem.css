@@ -14,6 +14,10 @@
   width:60%;
 }
 
+.goal-item-description h4 i{
+  margin-right: 0.2rem;
+}
+
 .goal-item .completed{
   text-decoration: line-through;
 }

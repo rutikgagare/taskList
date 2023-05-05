@@ -38,12 +38,12 @@ const Login = () => {
 
     const signInWithGoogleHandler = async () => {
         try{
-
             await signInWithPopup(auth,googleProvider);
             dispatch(loginActions.setLogout());
             dispatch(taskListActions.replace([]));
             dispatch(loginActions.setLogedIn());
             navigate('/');
+            
         }catch(error){
             console.log(error);
         }

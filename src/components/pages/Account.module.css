@@ -1,5 +1,4 @@
 .account{
-    width: 100vw;
     display: flex;
     justify-content: center;
 }
@@ -10,4 +9,8 @@
     padding: 2rem;
     margin: 2rem auto;
     border-radius: 0.5rem;
+}
+
+.user h2{
+    color: #8b005d;
 }
