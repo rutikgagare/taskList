@@ -32,8 +32,11 @@
   font-size: 0.9rem;
 }
 
+.goal-item-icons{
+  width: 40%;
+}
 .goal-item-icons i{
-  margin: 0rem 0.5rem;
+  margin: 0rem 0.3rem;
 }
 
 .goal-item-inputBox{
