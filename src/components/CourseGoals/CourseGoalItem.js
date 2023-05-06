@@ -5,9 +5,9 @@ import { taskListActions } from '../../store/taskListSlice';
 
 const CourseGoalItem = props => {
   const [inputBox, setInputBox] = useState(false);
-  const [editedTask, setEditedTask] = useState('');
+  const [editedTask, setEditedTask] = useState(props.text);
   const [dateBox, setDateBox] = useState(false);
-  const [editedDate, setEditedDate] = useState('');
+  const [editedDate, setEditedDate] = useState(props.deadline);
 
   const dispatch = useDispatch();
 
