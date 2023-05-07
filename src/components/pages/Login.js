@@ -15,6 +15,7 @@ const Login = () => {
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
+    const [error,setError] = useState(false);
     const [password, setPassword] = useState('');
 
     const loginHandler = async (event) => {
@@ -22,12 +23,14 @@ const Login = () => {
         try {
             const response = await signInWithEmailAndPassword(auth, email, password);
             // console.log(response);
-            dispatch(loginActions.setLogout());
+            // dispatch(loginActions.setLogout());
             dispatch(taskListActions.replace([]));
-            dispatch(loginActions.setLogedIn());
+            // dispatch(loginActions.setLogedIn());
+
             navigate('/');
 
         } catch (error) {
+            setError(true);
             console.log(error);
         }
     }
@@ -68,8 +71,11 @@ const Login = () => {
                     <div><hr/></div>
 
                     <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
+
+                    {error && <p className={classes.error}>Something went wrong. Please check out your Login Credentials</p>}
                 </form>
             </div>
+
 
         </div>)
 }

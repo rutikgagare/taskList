@@ -8,6 +8,7 @@ import { loginActions } from '../../store/loginSlice';
 import { taskListActions } from '../../store/taskListSlice';
 import { googleProvider } from '../../config/firebase';
 import { signInWithPopup } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
 import google from '../../Images/google.png';
 
 
@@ -15,6 +16,8 @@ const Signup = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [userName, setuserName] = useState('');
+    const [error,setError] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -22,25 +25,25 @@ const Signup = () => {
         event.preventDefault();
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password);
-        
-            dispatch(loginActions.setLogout());
+            await updateProfile(response.user, {
+                displayName: userName
+            });
+            
+            // dispatch(loginActions.setLogout());
             navigate('/login');
-
         } catch (error) {
-            console.log(error);
-            return false;
+           setError(true);
         }
     }
 
     const signInWithGoogleHandler = async () => {
-        try{
-
-            await signInWithPopup(auth,googleProvider);
-            dispatch(loginActions.setLogout());
+        try {
+            await signInWithPopup(auth, googleProvider);
+            // dispatch(loginActions.setLogout());
             dispatch(taskListActions.replace([]));
-            dispatch(loginActions.setLogedIn());
+            // dispatch(loginActions.setLogedIn());
             navigate('/');
-        }catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
@@ -58,14 +61,17 @@ const Signup = () => {
 
                 <h2>Create your account</h2>
                 <form onSubmit={registrationHandler} >
+                    <input type="text" placeholder='User Name' onChange={(e) => { setuserName(e.target.value) }} />
                     <input type="email" placeholder='Email address' onChange={(e) => { setEmail(e.target.value) }} />
                     <input type="password" placeholder='Password' onChange={(e) => { setPassword(e.target.value) }} />
                     <button type="submit">Register <i class="fa-solid fa-arrow-right"></i></button>
                     <span>Already have a account? <Link to="/login">Log in</Link></span>
 
-                    <div><hr/></div>
+                    <div><hr /></div>
 
-                    <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
+                    <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt="" /> Continue With Google</button>
+
+                    {error && <p className={classes.error}>Something went wrong. Please check out your Login Credentials</p>}
                 </form>
             </div>
         </div>

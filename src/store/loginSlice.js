@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { onAuthStateChanged } from "firebase/auth";
 
 const loginSlice = createSlice({
     name:"login",
@@ -12,6 +13,7 @@ const loginSlice = createSlice({
         }
     }
 });
+
 
 export const loginActions = loginSlice.actions;
 export default loginSlice;

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { taskListActions } from '../../store/taskListSlice';
 
 const CourseGoalItem = props => {
+  
   const [inputBox, setInputBox] = useState(false);
   const [editedTask, setEditedTask] = useState(props.text);
   const [dateBox, setDateBox] = useState(false);
@@ -79,7 +80,6 @@ const CourseGoalItem = props => {
         </div>
       }
     </>
-
   );
 };
 

@@ -11,7 +11,7 @@ import { taskListActions } from '../../store/taskListSlice';
 import { loginActions } from '../../store/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { signOut } from 'firebase/auth'
+import { signOut } from 'firebase/auth';
 
 let send = false;
 
@@ -76,6 +76,7 @@ const Home = () => {
         <div className={classes.buttons}>
           {!isLogin && <button onClick={() => navigate('/login')}>Login</button>}
           {!isLogin && <button onClick={() => navigate('/signup')}>SignUp</button>}
+          {/* {isLogin && <span>{auth.currentUser.displayName}</span>} */}
           {isLogin && <i onClick={() => { navigate('/account') }} class="fa-solid fa-user"></i>}
           {isLogin && <button onClick={logoutHandler}>Logout</button>}
         </div>

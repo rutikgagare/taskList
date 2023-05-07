@@ -102,6 +102,14 @@
     color: green;
 }
 
+.error{
+    color: red;
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
 @media screen and (max-width: 1000px) {
     .loginForm{
         width: 50%;
