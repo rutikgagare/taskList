@@ -6,11 +6,18 @@
 .user{
     background-color: white;
     color: black;
-    padding: 4rem;
+    padding: 2rem;
     margin: 2rem auto;
     border-radius: 0.5rem;
 }
 
 .user h2{
     color: #8b005d;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    .user{
+        width: 80%;
+    }
 }

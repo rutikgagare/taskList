@@ -72,7 +72,7 @@ const Login = () => {
 
                     <button className={classes.google} onClick={signInWithGoogleHandler}> <img src={google} alt=""/> Continue With Google</button>
 
-                    {error && <p className={classes.error}>Something went wrong. Please check out your Login Credentials</p>}
+                    {error && <p className={classes.error}>Something went wrong. Please check out your Login Credentials and Internet connection.</p>}
                 </form>
             </div>
 
