@@ -5,7 +5,7 @@ const taskListSlice = createSlice({
     initialState:{items:[]},
     reducers:{
         addTask:(state,action)=>{
-            state.items.push(action.payload);
+            state.items.unshift(action.payload);
         },
         removeTask:(state,action)=>{
             state.items = state.items.filter((item)=>{

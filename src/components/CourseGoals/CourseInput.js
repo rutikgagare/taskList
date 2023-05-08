@@ -40,6 +40,9 @@ const CourseInput = props => {
     setEnteredDate('');
   };
 
+  const today = new Date().toISOString().slice(0,10);
+  console.log(today);
+
   return (
     <form onSubmit={formSubmitHandler}>
       <div className={`form-control ${!isValid ? 'invalid':''}`}>
@@ -47,7 +50,7 @@ const CourseInput = props => {
         <input type="text" id='task' value={enteredValue} onChange={goalInputChangeHandler} />
 
         <label htmlFor="date">Deadline</label>
-        <input type="date" value={enteredDate} onChange={goalDateChangeHandler} />
+        <input type="date" value={enteredDate} min={today} onChange={goalDateChangeHandler} />
         {!isLogin && <p style={{color:"red"}}>Please Login to Save your task</p>}
       </div>
       <Button type="submit">Add Task</Button>

@@ -24,6 +24,7 @@ const Home = () => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        console.log("loggedin"+user.uid);
         dispatch(loginActions.setLogedIn());
       }
     });
