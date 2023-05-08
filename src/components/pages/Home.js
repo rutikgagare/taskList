@@ -75,7 +75,7 @@ const Home = () => {
 
   return (
     <div className={classes.main}>
-      {isLoading && <Modal></Modal>}
+      {isLoading && isLogin && <Modal></Modal>}
 
       <section className={classes.navbar}>
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
