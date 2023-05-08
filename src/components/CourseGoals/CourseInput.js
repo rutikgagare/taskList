@@ -5,11 +5,14 @@ import { taskListActions } from '../../store/taskListSlice';
 import './CourseInput.css';
 
 const CourseInput = props => {
+  // get todays date
+  const today = new Date().toISOString().slice(0,10);
+
   const dispatch = useDispatch();
   const isLogin = useSelector(state => state.login.isLogedIn);
 
   const [enteredValue, setEnteredValue] = useState('');
-  const [enteredDate, setEnteredDate] = useState('');
+  const [enteredDate, setEnteredDate] = useState(today);
   const [isValid, setIsValid] = useState(true);
 
   const goalInputChangeHandler = event => {
@@ -39,9 +42,6 @@ const CourseInput = props => {
     setEnteredValue('');
     setEnteredDate('');
   };
-
-  const today = new Date().toISOString().slice(0,10);
-  console.log(today);
 
   return (
     <form onSubmit={formSubmitHandler}>

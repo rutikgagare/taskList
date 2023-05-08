@@ -6,7 +6,7 @@ import Login from './components/pages/Login';
 import Account from './components/pages/Account';
 import Error from './components/pages/Error';
 import './App.css';
-import { useSelector } from 'react-redux';
+import ModalOverlay from './components/Modal/ModalOverlay';
 
 
 // const PrivateRoute = () => {
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   { path: '/', element: <Home></Home>, errorElement: <Error></Error> },
   { path: '/signup', element: <Signup></Signup> },
   { path: '/login', element: <Login></Login> },
-  { path: '/account', element: <Account></Account> }
+  { path: '/account', element: <Account></Account> },
   // {
   //   path: '/account', element: <PrivateRoute></PrivateRoute>, children: [{ path: '/account', element: <Account></Account> }],
   // },

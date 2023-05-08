@@ -12,6 +12,7 @@ import { loginActions } from '../../store/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { signOut } from 'firebase/auth';
+import Modal from '../Modal/ModalOverlay';
 
 let send = false;
 
@@ -20,13 +21,16 @@ const Home = () => {
   const isLogin = useSelector(state => state.login.isLogedIn);
   const items = useSelector(state => state.task.items);
   const [filter, setFilter] = useState("today");
+  const [isLoading,setIsLoading] = useState(true);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
+      setIsLoading(true);
       if (user) {
         console.log("loggedin"+user.uid);
         dispatch(loginActions.setLogedIn());
       }
+      setIsLoading(false);
     });
   }, []);
 
@@ -71,6 +75,8 @@ const Home = () => {
 
   return (
     <div className={classes.main}>
+      {isLoading && <Modal></Modal>}
+
       <section className={classes.navbar}>
         <h2> <i class="fas fa-list-check"></i> Task List</h2>
 
