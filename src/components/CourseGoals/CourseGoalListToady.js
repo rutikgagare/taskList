@@ -16,7 +16,7 @@ const CourseGoalListToday = props => {
     return !(deadline > today) && !(deadline < today);
   })
 
-  console.log(todayItems);
+  // console.log(todayItems);
     
   return (
     <ul className="goal-list">
